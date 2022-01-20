@@ -7,19 +7,29 @@ class RabbitMQServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/config/rabbitmq.php',
-            'queue.connections.rabbitmq'
-        );
+        $this->mergeConfigFrom(__DIR__.'/config/rabbitmq.php', 'queue.connections.rabbitmq');
 
-        $this->mergeConfigFrom(
-            __DIR__.'/config/database.php',
-            'queue.connections.database'
-        );
+        $this->mergeConfigFrom(__DIR__.'/config/database.php', 'queue.connections.database');
     }
 
     public function boot()
     {
 
+    }
+
+    /**
+     * Merge the given configuration with the existing configuration.
+     *
+     * @param  string  $path
+     * @param  string  $key
+     * @return void
+     */
+    protected function mergeConfigFrom($path, $key)
+    {
+        $config = $this->app['config']->get($key, []);
+
+        $this->app['config']->set($key,
+            array_merge(require $path, $config)
+        );
     }
 }

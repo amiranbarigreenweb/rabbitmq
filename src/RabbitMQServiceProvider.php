@@ -7,15 +7,19 @@ class RabbitMQServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        $this->mergeConfigFrom(
+            __DIR__.'/config/rabbitmq.php',
+            'queue.connections.rabbitmq'
+        );
 
+        $this->mergeConfigFrom(
+            __DIR__.'/config/database.php',
+            'queue.connections.database'
+        );
     }
 
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/config'     => base_path('config'),
-            __DIR__.'/migrations' => base_path('database/migrations'),
-            __DIR__.'/php-config' => base_path('/'),
-        ]);
+
     }
 }

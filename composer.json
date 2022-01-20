@@ -1,0 +1,28 @@
+{
+    "name": "a.anbari/rabbitmq-package",
+    "description": "RabbitMQ-package for lumen/laravel",
+    "autoload": {
+        "psr-4": {
+            "AmirAnbari\\Rabbitmq\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amiranbari Pooyaeraghi",
+            "email": "a.anabri@greenweb.ir"
+        }
+    ],
+    "extra": {
+        "laravel" : {
+            "providers" : [
+                "AmirAnbari\\Rabbitmq\\RabbitMQServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^7.3|^8.0",
+        "vladimir-yuldashev/laravel-queue-rabbitmq": "^11.3"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

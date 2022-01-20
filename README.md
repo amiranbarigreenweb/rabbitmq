@@ -10,6 +10,22 @@ composer require amiranbari/rabbitmq-package
 ```
 The package will automatically register itself.
 
+### Necessary Config
+
+- Change/add these parameters into .env file
+```php
+QUEUE_CONNECTION=rabbitmq 
+
+RABBITMQ_HOST=lumen-rabbitmq 
+RABBITMQ_PORT=5672 
+RABBITMQ_USER=lumen-rabbit
+RABBITMQ_PASSWORD=lumen-rabbit
+RABBITMQ_VHOST=/
+RABBITMQ_QUEUE=FanoutQueue
+```
+
+### Optional Config
+
 Add connection to `config/queue.php`:
 ```php
 'connections' => [

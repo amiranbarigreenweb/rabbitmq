@@ -1,5 +1,5 @@
 {
-    "name": "a.anbari/rabbitmq-package",
+    "name": "amiranbari/rabbitmq-package",
     "description": "RabbitMQ-package for lumen/laravel",
     "autoload": {
         "psr-4": {

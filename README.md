@@ -11,7 +11,7 @@ composer require amiranbari/rabbitmq-package
 
 ### Necessary Config
 
-- Add this into bootstrap/app.php
+- If your project is LUMEN: Add this into bootstrap/app.php
 
 ```php
 $app->register(AmirAnbari\Rabbitmq\RabbitMQServiceProvider::class);

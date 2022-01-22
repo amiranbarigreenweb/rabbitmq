@@ -8,9 +8,14 @@
 ```
 composer require amiranbari/rabbitmq-package
 ```
-The package will automatically register itself.
 
 ### Necessary Config
+
+- Add this into bootstrap/app.php
+
+```php
+$app->register(AmirAnbari\Rabbitmq\RabbitMQServiceProvider::class);
+```
 
 - Change/add these parameters into .env file
 ```php
@@ -24,9 +29,7 @@ RABBITMQ_VHOST=/
 RABBITMQ_QUEUE=FanoutQueue
 ```
 
-### Optional Config
-
-Add connection to `config/queue.php`:
+- Add connection to `config/queue.php`:
 ```php
 'connections' => [
     // ...
@@ -71,7 +74,7 @@ Add connection to `config/queue.php`:
 ],
 ```
 
-Change database connection in `config/queue.php`:
+- Change database connection in `config/queue.php`:
 
 ```php
 'driver' => 'database',
